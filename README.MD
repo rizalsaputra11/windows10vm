@@ -13,41 +13,41 @@ A Docker container solution for running Windows 10 with KVM acceleration, provid
 - KVM enabled system
 - Administrative privileges
 
-### Installation
+## 📦 Features
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/hopingboyz/windows10vm.git
-Navigate to project directory:
+- ⚡ Run Windows 10 inside a Docker container
+- 🔒 Secure with isolated environment
+- 🖥️ Access via noVNC (web browser) or RDP
+- 🚀 Fast virtualization using KVM (requires host support)
+- 💾 Persistent storage using Docker volumes
 
-bash
+---
+
+## 🛠️ Requirements
+
+- **Linux host** with:
+  - KVM enabled (`/dev/kvm` should exist)
+  - Docker installed
+- **Windows 10 ISO** (for initial installation)
+- Modern web browser (for noVNC access)
+
+---
+
+## 🚀 Installation
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/hopingboyz/windows10vm
 cd windows10vm
-Build the Docker image:
 
-bash
+```bash
 docker build -t windows10-vm .
-Run the Windows 10 VM:
 
-bash
+```bash
 docker run -it --rm \
   --device /dev/kvm \
-  -p 6080:6080 \    # VNC access
-  -p 3389:3389 \    # RDP access
+  -p 6080:6080 \
+  -p 3389:3389 \
   -v windows_data:/data \
   -v windows_iso:/iso \
   windows10-vm
-🔗 Access Methods
-VNC: Connect via http://localhost:6080
-
-RDP: Use any RDP client to connect to localhost:3389
-
-📂 Volume Mounts
-Volume	Purpose
-windows_data	Persistent VM storage
-windows_iso	ISO files directory
-⚙️ System Requirements
-Linux host with KVM support
-
-Minimum 4GB RAM (8GB recommended)
-
-20GB free disk space
