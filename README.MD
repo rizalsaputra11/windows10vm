@@ -40,10 +40,10 @@ A Docker container solution for running Windows 10 with KVM acceleration, provid
 git clone https://github.com/hopingboyz/windows10vm
 cd windows10vm
 
-```bash
+
 docker build -t windows10-vm .
 
-```bash
+
 docker run -it --rm \
   --device /dev/kvm \
   -p 6080:6080 \
